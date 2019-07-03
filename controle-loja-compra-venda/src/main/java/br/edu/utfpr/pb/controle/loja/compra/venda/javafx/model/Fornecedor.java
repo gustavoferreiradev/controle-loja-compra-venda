@@ -15,7 +15,9 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table (name = "fornecedor")
-public class Fornecedor implements Serializable{
+public class Fornecedor implements AbstractModel{
+    
+     private static final long serialVersionUID = 1L;
     
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)

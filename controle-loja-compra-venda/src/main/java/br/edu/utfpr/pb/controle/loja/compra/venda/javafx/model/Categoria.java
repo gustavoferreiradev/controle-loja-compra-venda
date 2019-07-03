@@ -1,6 +1,5 @@
 package br.edu.utfpr.pb.controle.loja.compra.venda.javafx.model;
 
-import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,13 +10,15 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
-@Table (name = "categoria")
-public class Categoria implements Serializable{
-    
+@Table(name = "categoria")
+public class Categoria implements AbstractModel {
+
+    private static final long serialVersionUID = 1L;
+
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    
+
     @NotEmpty(message = "O campo 'nome' deve ser preenchido.")
     @Column(name = "nome", length = 50, nullable = false)
     private String nome;
@@ -75,9 +76,5 @@ public class Categoria implements Serializable{
     public String toString() {
         return nome;
     }
-    
-    
- 
-    
-    
+
 }

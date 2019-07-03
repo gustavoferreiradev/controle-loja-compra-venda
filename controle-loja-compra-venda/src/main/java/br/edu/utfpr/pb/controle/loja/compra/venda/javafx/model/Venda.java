@@ -1,8 +1,8 @@
 package br.edu.utfpr.pb.controle.loja.compra.venda.javafx.model;
 
-import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Objects;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,8 +17,9 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table (name = "venda")
-public class Venda implements Serializable {
+public class Venda implements AbstractModel{
       
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -54,5 +55,81 @@ public class Venda implements Serializable {
         this.vendaProdutos = vendaProdutos;           
            
 }
+
+    public Venda() {
+    }
+
+    public Venda(Integer id, Integer nf, LocalDate data, Cliente cliente, List<VendaProduto> vendaProdutos, Double valorTotal) {
+        this.id = id;
+        this.nf = nf;
+        this.data = data;
+        this.cliente = cliente;
+        this.vendaProdutos = vendaProdutos;
+        this.valorTotal = valorTotal;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getNf() {
+        return nf;
+    }
+
+    public void setNf(Integer nf) {
+        this.nf = nf;
+    }
+
+    public LocalDate getData() {
+        return data;
+    }
+
+    public void setData(LocalDate data) {
+        this.data = data;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 79 * hash + Objects.hashCode(this.id);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Venda other = (Venda) obj;
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Venda{" + "id=" + id + ", nf=" + nf + ", data=" + data + ", cliente=" + cliente + ", vendaProdutos=" + vendaProdutos + ", valorTotal=" + valorTotal + '}';
+    }
+    
+    
     
 }

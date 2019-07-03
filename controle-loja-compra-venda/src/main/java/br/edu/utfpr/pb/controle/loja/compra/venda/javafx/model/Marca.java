@@ -12,7 +12,9 @@ import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table (name = "marca")
-public class Marca implements Serializable{
+public class Marca implements AbstractModel{
+    
+    private static final long serialVersionUID = 1L;
     
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)

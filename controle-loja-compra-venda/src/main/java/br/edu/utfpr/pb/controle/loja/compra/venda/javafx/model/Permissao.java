@@ -12,7 +12,9 @@ import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table (name = "permissao")
-public class Permissao implements Serializable{
+public class Permissao implements AbstractModel{
+    
+    private static final long serialVersionUID = 1L;
     
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
