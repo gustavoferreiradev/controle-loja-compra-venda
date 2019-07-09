@@ -24,8 +24,10 @@ br\edu\utfpr\pb\oo24s\aula4\javafx\controller\FXMLCategoriaCadastroController.cl
 br\edu\utfpr\pb\oo24s\aula4\javafx\dao\ProdutoDao.class
 br\edu\utfpr\pb\oo24s\aula4\javafx\controller\FXMLProdutoCadastroController.class
 br\edu\utfpr\pb\oo24s\aula4\javafx\controller\FXMLUsuarioListaControllerController.class
+br\edu\utfpr\pb\oo24s\aula4\javafx\controller\FXMLClienteListaController.class
 br\edu\utfpr\pb\oo24s\aula4\javafx\model\Categoria.class
 br\edu\utfpr\pb\oo24s\aula4\javafx\dao\GenericDao.class
+br\edu\utfpr\pb\oo24s\aula4\javafx\controller\FXMLClienteCadastroController.class
 br\edu\utfpr\pb\oo24s\aula4\javafx\model\VendaProduto.class
 br\edu\utfpr\pb\oo24s\aula4\javafx\controller\FXMLMarcaListaController.class
 br\edu\utfpr\pb\oo24s\aula4\javafx\model\Estado.class

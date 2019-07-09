@@ -30,6 +30,7 @@ INSERT INTO Estado (nome) VALUES ('Sao Paulo');
 INSERT INTO Estado (nome) VALUES ('Sergipe');
 INSERT INTO Estado (nome) VALUES ('Tocantins');
 
+INSERT INTO Cidade (nome, estado_id) VALUES ('Rio Branco', 1);
 
 INSERT INTO categoria (descricao) VALUES ('Informatica');
 INSERT INTO categoria (descricao) VALUES ('Eletronico');

@@ -98,6 +98,18 @@ public class FXMLPrincipalController
         ));
     }
     
+        public void loadCliente(ActionEvent event) throws IOException{
+        setDataPane(openVBox(
+                "/fxml/FXMLClienteLista.fxml"
+        ));
+    }
+        
+        public void loadVenda(ActionEvent event) throws IOException{
+        setDataPane(openVBox(
+                "/fxml/FXMLVendaLista.fxml"
+        ));
+    }
+    
     @FXML
     private void showReportProduto (ActionEvent event){
         GenerateReport generateReport = new GenerateReport();
