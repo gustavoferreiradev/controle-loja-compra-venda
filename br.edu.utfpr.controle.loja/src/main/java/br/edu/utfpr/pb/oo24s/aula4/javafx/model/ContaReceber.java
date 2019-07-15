@@ -1,6 +1,8 @@
 package br.edu.utfpr.pb.oo24s.aula4.javafx.model;
 
+import java.time.LocalDate;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,25 +23,27 @@ public class ContaReceber implements AbstractModel{
    @GeneratedValue (strategy = GenerationType.IDENTITY)
    private Integer id;
    
-//   @NotNull (message = "Preencha o código da venda!")
-//   @OneToOne
-//   @JoinColumn (name = "venda_id", referencedColumnName = "id")
-//   private Venda venda;
+   @NotNull (message = "Preencha o código da venda!")
+   @OneToOne
+   @JoinColumn (name = "venda_id", referencedColumnName = "id")
+   private Venda venda;
    
    @NotNull (message = "Selecione uma forma de pagamento!")
    @ManyToOne
    @JoinColumn(name = "formaPagamento_id", referencedColumnName = "id")
    private FormaPagamento formaPagamento;
 
+   
     public ContaReceber() {
     }
 
     public ContaReceber(Integer id, Venda venda, FormaPagamento formaPagamento) {
         this.id = id;
-//        this.venda = venda;
+        this.venda = venda;
         this.formaPagamento = formaPagamento;
+    
     }
-
+    
     public Integer getId() {
         return id;
     }
@@ -48,13 +52,13 @@ public class ContaReceber implements AbstractModel{
         this.id = id;
     }
 
-//    public Venda getVenda() {
-//        return venda;
-//    }
-//
-//    public void setVenda(Venda venda) {
-//        this.venda = venda;
-//    }
+    public Venda getVenda() {
+        return venda;
+    }
+
+    public void setVenda(Venda venda) {
+        this.venda = venda;
+    }
 
     public FormaPagamento getFormaPagamento() {
         return formaPagamento;
@@ -63,6 +67,8 @@ public class ContaReceber implements AbstractModel{
     public void setFormaPagamento(FormaPagamento formaPagamento) {
         this.formaPagamento = formaPagamento;
     }
+
+   
 
     @Override
     public int hashCode() {

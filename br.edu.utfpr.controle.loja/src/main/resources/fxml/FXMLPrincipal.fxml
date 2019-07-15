@@ -32,6 +32,7 @@
                   <Menu mnemonicParsing="false" text="Pessoas">
                      <items>
                         <MenuItem mnemonicParsing="false" onAction="#loadCidade" text="Cidade" />
+                        <MenuItem mnemonicParsing="false" onAction="#loadEstado" text="Estado" />
                         <MenuItem mnemonicParsing="false" onAction="#loadCliente" text="Cliente" />
                         <MenuItem mnemonicParsing="false" onAction="#loadFornecedor" text="Fornecedor" />
                         <MenuItem mnemonicParsing="false" onAction="#loadUsuario" text="Usuário" />

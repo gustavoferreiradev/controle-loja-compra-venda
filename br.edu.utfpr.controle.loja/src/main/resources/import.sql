@@ -35,6 +35,19 @@ INSERT INTO cliente (nome, cpf,endereco,bairro,cep,complemento,referencia,cidade
 
 INSERT INTO fornecedor (nome, cnpj,endereco,bairro,cep,complemento,referencia,cidade_id) VALUES ('Empresa Ltda', '00101','Rua Teste, 123','Teste','11111','teste','teste',1);
 
+INSERT INTO formaPagamento (descricao) VALUES ('Dinheiro');
+INSERT INTO formaPagamento (descricao) VALUES ('Cartao de Credito 01x');
+INSERT INTO formaPagamento (descricao) VALUES ('Cartao de Credito 02x');
+INSERT INTO formaPagamento (descricao) VALUES ('Cartao de Credito 03x');
+INSERT INTO formaPagamento (descricao) VALUES ('Cartao de Credito 04x');
+INSERT INTO formaPagamento (descricao) VALUES ('Cartao de Credito 05x');
+INSERT INTO formaPagamento (descricao) VALUES ('Cartao de Credito 06x');
+INSERT INTO formaPagamento (descricao) VALUES ('Cartao de Credito 07x');
+INSERT INTO formaPagamento (descricao) VALUES ('Cartao de Credito 08x');
+INSERT INTO formaPagamento (descricao) VALUES ('Cartao de Credito 09x');
+INSERT INTO formaPagamento (descricao) VALUES ('Cartao de Credito 10x');
+INSERT INTO formaPagamento (descricao) VALUES ('Cartao de Credito 11x');
+INSERT INTO formaPagamento (descricao) VALUES ('Cartao de Credito 12x');
 
 INSERT INTO categoria (descricao) VALUES ('Informatica');
 INSERT INTO categoria (descricao) VALUES ('Eletronico');

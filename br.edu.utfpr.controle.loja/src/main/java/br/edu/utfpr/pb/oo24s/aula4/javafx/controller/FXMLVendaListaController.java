@@ -47,7 +47,7 @@ public class FXMLVendaListaController implements Initializable {
     private void setColumnProperties() {
         columnId.setCellValueFactory(new PropertyValueFactory<>("id"));
         columnNumeroDocumento.setCellValueFactory(new PropertyValueFactory<>("numeroDocumento"));
-        columnCliente.setCellValueFactory(new PropertyValueFactory<>("cliente"));
+        //columnCliente.setCellValueFactory(new PropertyValueFactory<>("cliente"));
     }
 
     private void loadData() {

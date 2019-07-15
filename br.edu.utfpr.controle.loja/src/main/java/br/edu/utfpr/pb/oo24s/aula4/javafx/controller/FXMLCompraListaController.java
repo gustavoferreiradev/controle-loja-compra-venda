@@ -30,8 +30,7 @@ public class FXMLCompraListaController implements Initializable {
     @FXML
     private TableColumn<Compra,Integer> columnNF;   
     
-    @FXML
-    private TableColumn<Compra,Integer> columnFornecedor;   
+
        
     private CompraDao compraDao;
     
@@ -47,7 +46,7 @@ public class FXMLCompraListaController implements Initializable {
     private void setColumnProperties() {
         columnId.setCellValueFactory(new PropertyValueFactory<>("id"));
         columnNF.setCellValueFactory(new PropertyValueFactory<>("nf"));
-        columnNF.setCellValueFactory(new PropertyValueFactory<>("fornecedor"));
+  
     }
 
     private void loadData() {

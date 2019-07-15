@@ -66,7 +66,7 @@ public class FXMLVendaCadastroController implements Initializable {
     private ContaReceberDao contaReceberDao;
     private Stage stage;
     private Venda venda;
-    private ContaReceber contaReceber;
+   // private ContaReceber contaReceber;
     private List<VendaProduto> vendaProdutos;
 
     @Override
@@ -77,7 +77,7 @@ public class FXMLVendaCadastroController implements Initializable {
         this.formaPagamentoDao = new FormaPagamentoDao();
         this.clienteDao = new ClienteDao();
         this.produtoDao = new ProdutoDao();
-        this.contaReceberDao = new ContaReceberDao();
+     //   this.contaReceberDao = new ContaReceberDao();
         ObservableList<Cliente> clientes = FXCollections.observableArrayList(clienteDao.getAll());
         ObservableList<Produto> produtos = FXCollections.observableArrayList(produtoDao.getAll());
         ObservableList<FormaPagamento> formasPagamento = FXCollections.observableArrayList(formaPagamentoDao.getAll());
@@ -107,16 +107,16 @@ public class FXMLVendaCadastroController implements Initializable {
         }
     }
 
-    public void setContaReceber(ContaReceber contaReceber) {
-        this.contaReceber = contaReceber;
+//    public void setContaReceber(ContaReceber contaReceber) {
+//        this.contaReceber = contaReceber;
 
-        if (venda.getId() != null) {
-            textId.setText(contaReceber.getId().toString());
-            comboFormaPagamento.setValue(contaReceber.getFormaPagamento());
-                    
-        }        
+//        if (venda.getId() != null) {
+//            textId.setText(contaReceber.getId().toString());
+//            comboFormaPagamento.setValue(contaReceber.getFormaPagamento());
+//                    
+//        }        
         
-    }
+    //}
     
 
     
@@ -131,12 +131,12 @@ public class FXMLVendaCadastroController implements Initializable {
         venda.setCliente(comboCliente.getSelectionModel().getSelectedItem());
         venda.setData(dateData.getValue());
         venda.setDataEntrega(dateDataEntrega.getValue());
-        contaReceber.setId(Integer.parseInt(textId.getText()));
-        contaReceber.setFormaPagamento(comboFormaPagamento.getValue());
+//        contaReceber.setId(1);
+//        contaReceber.setFormaPagamento(comboFormaPagamento.getValue());
        
         venda.setVendaProdutos(vendaProdutos);
         this.vendaDao.save(venda);
-        this.contaReceberDao.save(contaReceber);
+//        this.contaReceberDao.save(contaReceber);
         this.stage.close();
         
     }
