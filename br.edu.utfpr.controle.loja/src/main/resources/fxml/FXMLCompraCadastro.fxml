@@ -11,22 +11,20 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="549.0" prefWidth="747.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.utfpr.pb.oo24s.aula4.javafx.controller.FXMLVendaCadastroController">
+<AnchorPane id="AnchorPane" prefHeight="549.0" prefWidth="747.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.utfpr.pb.oo24s.aula4.javafx.controller.FXMLCompraCadastroController">
     <stylesheets>
         <URL value="@/styles/style.css" />
     </stylesheets>
    <children>
       <Button layoutX="664.0" layoutY="423.0" mnemonicParsing="false" onAction="#save" prefHeight="25.0" prefWidth="62.0" text="Salvar" />
       <Label layoutX="24.0" layoutY="29.0" text="Código" />
-      <Label layoutX="182.0" layoutY="29.0" text="Numero Documento" />
+      <Label layoutX="182.0" layoutY="29.0" text="NF" />
       <Label layoutX="25.0" layoutY="79.0" text="Data" />
       <TextField fx:id="textId" editable="false" layoutX="24.0" layoutY="46.0" />
-      <TextField fx:id="textNumeroDocumento" layoutX="182.0" layoutY="46.0" />
-      <DatePicker fx:id="dateData" layoutX="24.0" layoutY="96.0" prefHeight="25.0" prefWidth="149.0" />
-      <Label layoutX="184.0" layoutY="81.0" text="Data Entrega" />
-      <DatePicker fx:id="dateDataEntrega" layoutX="182.0" layoutY="98.0" prefHeight="25.0" prefWidth="149.0" />
-      <ComboBox fx:id="comboCliente" layoutX="21.0" layoutY="162.0" prefHeight="25.0" prefWidth="305.0" />
-      <Label layoutX="25.0" layoutY="137.0" text="Cliente" />
+      <TextField fx:id="textNF" layoutX="182.0" layoutY="46.0" />
+      <DatePicker fx:id="dateData" layoutX="24.0" layoutY="96.0" prefHeight="25.0" prefWidth="305.0" />
+      <ComboBox fx:id="comboFornecedor" layoutX="21.0" layoutY="162.0" prefHeight="25.0" prefWidth="305.0" />
+      <Label layoutX="25.0" layoutY="137.0" text="Fornecedor" />
       <SplitPane dividerPositions="0.5" layoutX="24.0" layoutY="197.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="702.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="147.0" prefWidth="541.0">
@@ -54,7 +52,5 @@
         </items>
       </SplitPane>
       <Button layoutX="587.0" layoutY="423.0" mnemonicParsing="false" onAction="#cancel" text="Cancelar" />
-      <Label layoutX="348.0" layoutY="29.0" text="Forma de Pagamento" />
-      <ComboBox fx:id="comboFormaPagamento" layoutX="344.0" layoutY="46.0" prefHeight="25.0" prefWidth="305.0" />
    </children>
 </AnchorPane>

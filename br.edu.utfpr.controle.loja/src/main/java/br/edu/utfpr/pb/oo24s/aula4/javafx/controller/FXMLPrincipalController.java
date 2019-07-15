@@ -29,10 +29,11 @@ public class FXMLPrincipalController
     private VBox boxPrincipal;
 
     private Usuario usuarioAutenticado;
-    
-    public void setUsuarioAutenticado (Usuario usuario){
+
+    public void setUsuarioAutenticado(Usuario usuario) {
         this.usuarioAutenticado = usuario;
     }
+
     /**
      * Initializes the controller class.
      */
@@ -78,59 +79,81 @@ public class FXMLPrincipalController
                 "/fxml/FXMLProdutoLista.fxml"
         ));
     }
-    
+
     @FXML
-    public void loadUsuario(ActionEvent event) throws IOException{
+    public void loadUsuario(ActionEvent event) throws IOException {
         setDataPane(openVBox(
                 "/fxml/FXMLUsuarioLista.fxml"
         ));
     }
+
     @FXML
-    public void loadEstado(ActionEvent event) throws IOException{
+    public void loadEstado(ActionEvent event) throws IOException {
         setDataPane(openVBox(
                 "/fxml/FXMLEstadoLista.fxml"
         ));
     }
-    
-    public void loadMarca(ActionEvent event) throws IOException{
+
+    public void loadMarca(ActionEvent event) throws IOException {
         setDataPane(openVBox(
                 "/fxml/FXMLMarcaLista.fxml"
         ));
     }
-    
-        public void loadCliente(ActionEvent event) throws IOException{
+
+    public void loadCidade(ActionEvent event) throws IOException {
+        setDataPane(openVBox(
+                "/fxml/FXMLCidadeLista.fxml"
+        ));
+    }
+
+    public void loadCliente(ActionEvent event) throws IOException {
         setDataPane(openVBox(
                 "/fxml/FXMLClienteLista.fxml"
         ));
     }
-        
-        public void loadVenda(ActionEvent event) throws IOException{
+
+    public void loadFornecedor(ActionEvent event) throws IOException {
+        setDataPane(openVBox("/fxml/FXMLFornecedorLista.fxml"
+        ));
+    }
+
+    public void loadCompra(ActionEvent event) throws IOException {
+        setDataPane(openVBox("/fxml/FXMLCompraLista.fxml"
+        ));
+    }
+
+    public void loadFormaPagamento(ActionEvent event) throws IOException {
+        setDataPane(openVBox(
+                "/fxml/FXMLFormaPagamentoLista.fxml"));
+    }
+
+    public void loadVenda(ActionEvent event) throws IOException {
         setDataPane(openVBox(
                 "/fxml/FXMLVendaLista.fxml"
         ));
     }
-        
-       public void loadContaPagar(ActionEvent event) throws IOException{
+
+    public void loadContaPagar(ActionEvent event) throws IOException {
         setDataPane(openVBox(
                 "/fxml/FXMLContaPagarLista.fxml"
         ));
     }
-    
+
     @FXML
-    private void showReportProduto (ActionEvent event){
+    private void showReportProduto(ActionEvent event) {
         GenerateReport generateReport = new GenerateReport();
         InputStream file = this.getClass().getResourceAsStream("/report/produtos.jasper");
         Map<String, Object> parameters = new HashMap<>();
-        parameters.put("TITULO", "Relatório de Produtos - JavaFx");
+        parameters.put("TITULO", "Relatório de Produtos");
         Image imagem = new ImageIcon(
                 this.getClass().getResource("/imagens/logoUTFPR.jpg")).getImage();
         parameters.put("LOGO", imagem);
-        
+
         DatabaseConnection conn = DatabaseConnection.getInstance();
         try {
             JasperViewer viewer = generateReport.getReport(conn.getConnection(), parameters, file);
             viewer.setVisible(true);
-        } catch (Exception e) {            
+        } catch (Exception e) {
             e.printStackTrace();
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Erro");
@@ -139,6 +162,5 @@ public class FXMLPrincipalController
             alert.showAndWait();
         }
     }
-    
-    
+
 }

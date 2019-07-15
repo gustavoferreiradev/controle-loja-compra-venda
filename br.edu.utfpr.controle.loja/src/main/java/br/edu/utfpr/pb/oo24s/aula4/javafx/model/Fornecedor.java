@@ -167,7 +167,7 @@ public class Fornecedor implements AbstractModel{
 
     @Override
     public String toString() {
-        return "Razão Social=" + nome + ", cnpj=" + cnpj;
+        return nome;
     }
     
     

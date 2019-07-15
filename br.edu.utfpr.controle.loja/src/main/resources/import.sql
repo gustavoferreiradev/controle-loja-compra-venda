@@ -33,6 +33,8 @@ INSERT INTO Cidade (nome, estado_id) VALUES ('Rio Branco', 1);
 
 INSERT INTO cliente (nome, cpf,endereco,bairro,cep,complemento,referencia,cidade_id) VALUES ('Nedson Estark', '00101','Rua Teste, 123','Teste','11111','teste','teste',1);
 
+INSERT INTO fornecedor (nome, cnpj,endereco,bairro,cep,complemento,referencia,cidade_id) VALUES ('Empresa Ltda', '00101','Rua Teste, 123','Teste','11111','teste','teste',1);
+
 
 INSERT INTO categoria (descricao) VALUES ('Informatica');
 INSERT INTO categoria (descricao) VALUES ('Eletronico');

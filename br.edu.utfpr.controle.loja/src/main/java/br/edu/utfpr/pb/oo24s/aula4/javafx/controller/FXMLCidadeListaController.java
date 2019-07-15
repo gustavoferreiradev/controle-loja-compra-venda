@@ -1,7 +1,7 @@
 package br.edu.utfpr.pb.oo24s.aula4.javafx.controller;
 
-import br.edu.utfpr.pb.oo24s.aula4.javafx.dao.VendaDao;
-import br.edu.utfpr.pb.oo24s.aula4.javafx.model.Venda;
+import br.edu.utfpr.pb.oo24s.aula4.javafx.dao.CidadeDao;
+import br.edu.utfpr.pb.oo24s.aula4.javafx.model.Cidade;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -20,61 +20,57 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class FXMLVendaListaController implements Initializable {
+public class FXMLCidadeListaController implements Initializable {
     @FXML
-    private TableView <Venda> tableData;
+    private TableView <Cidade> tableData;
     
     @FXML
-    private TableColumn<Venda, Integer> columnId;
+    private TableColumn<Cidade, Integer> columnId;
     
     @FXML
-    private TableColumn<Venda,Integer> columnNumeroDocumento;
-    
-    @FXML
-    private TableColumn<Venda,Integer> columnCliente;
+    private TableColumn<Cidade,String> columnNome;   
        
-    private VendaDao vendaDao;
+    private CidadeDao cidadeDao;
     
-    private ObservableList<Venda> list = FXCollections.observableArrayList();
+    private ObservableList<Cidade> list = FXCollections.observableArrayList();
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       this.vendaDao = new VendaDao();
+       this.cidadeDao = new CidadeDao();
        setColumnProperties();
        loadData();
     }    
 
     private void setColumnProperties() {
         columnId.setCellValueFactory(new PropertyValueFactory<>("id"));
-        columnNumeroDocumento.setCellValueFactory(new PropertyValueFactory<>("numeroDocumento"));
-        columnCliente.setCellValueFactory(new PropertyValueFactory<>("cliente"));
+        columnNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
     }
 
     private void loadData() {
         list.clear();
-        list.addAll(vendaDao.getAll());
+        list.addAll(cidadeDao.getAll());
         
         tableData.setItems(list);
     }
     
-     private void openForm(Venda venda, ActionEvent event) {
+     private void openForm(Cidade cidade, ActionEvent event) {
         try {
             //Carregar o arquivo fxml e cria um novo stage para a janela Modal
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(this.getClass().getResource("/fxml/FXMLVendaCadastro.fxml"));
+            loader.setLocation(this.getClass().getResource("/fxml/FXMLCidadeCadastro.fxml"));
             AnchorPane pane = (AnchorPane) loader.load();
 
             //Criando o stage para o modal
             Stage dialogStage = new Stage();
-            dialogStage.setTitle("Cadastro de Venda");
+            dialogStage.setTitle("Cadastro de Cidade");
             dialogStage.initModality(Modality.WINDOW_MODAL);
             dialogStage.initOwner(((Node) event.getSource()).getScene().getWindow());
 
             Scene scene = new Scene(pane);
             dialogStage.setScene(scene);
 
-            FXMLVendaCadastroController controller = loader.getController();
-            controller.setVenda(venda);
+            FXMLCidadeCadastroController controller = loader.getController();
+            controller.setCidade(cidade);
             controller.setDialogStage(dialogStage);
             //Exibe a janela Modal e espera até o usuário fechar
             dialogStage.showAndWait();
@@ -92,21 +88,21 @@ public class FXMLVendaListaController implements Initializable {
 
     @FXML
     private void edit(ActionEvent event) {
-        Venda venda = tableData.getSelectionModel().getSelectedItem();
-        this.openForm(venda, event);
+        Cidade cidade = tableData.getSelectionModel().getSelectedItem();
+        this.openForm(cidade, event);
     }
 
     @FXML
     private void newRecord(ActionEvent event) {
-        this.openForm(new Venda(), event);
+        this.openForm(new Cidade(), event);
     }
 
     @FXML
     private void delete(ActionEvent event) {
         if (tableData.getSelectionModel().getSelectedIndex() >= 0) {
             try {
-               Venda venda = tableData.getSelectionModel().getSelectedItem();
-               vendaDao.delete(venda.getId());
+               Cidade cidade = tableData.getSelectionModel().getSelectedItem();
+               cidadeDao.delete(cidade.getId());
                tableData.getItems().remove(tableData.getSelectionModel().getSelectedIndex());
             } catch (Exception e) {
                 e.printStackTrace();

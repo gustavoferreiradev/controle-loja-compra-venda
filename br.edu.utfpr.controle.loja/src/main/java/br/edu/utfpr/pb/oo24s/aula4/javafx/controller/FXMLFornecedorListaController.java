@@ -1,7 +1,7 @@
 package br.edu.utfpr.pb.oo24s.aula4.javafx.controller;
 
-import br.edu.utfpr.pb.oo24s.aula4.javafx.dao.VendaDao;
-import br.edu.utfpr.pb.oo24s.aula4.javafx.model.Venda;
+import br.edu.utfpr.pb.oo24s.aula4.javafx.dao.FornecedorDao;
+import br.edu.utfpr.pb.oo24s.aula4.javafx.model.Fornecedor;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -20,61 +20,57 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class FXMLVendaListaController implements Initializable {
+public class FXMLFornecedorListaController implements Initializable {
     @FXML
-    private TableView <Venda> tableData;
+    private TableView <Fornecedor> tableData;
     
     @FXML
-    private TableColumn<Venda, Integer> columnId;
+    private TableColumn<Fornecedor, Integer> columnId;
     
     @FXML
-    private TableColumn<Venda,Integer> columnNumeroDocumento;
-    
-    @FXML
-    private TableColumn<Venda,Integer> columnCliente;
+    private TableColumn<Fornecedor,String> columnNome;   
        
-    private VendaDao vendaDao;
+    private FornecedorDao fornecedorDao;
     
-    private ObservableList<Venda> list = FXCollections.observableArrayList();
+    private ObservableList<Fornecedor> list = FXCollections.observableArrayList();
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       this.vendaDao = new VendaDao();
+       this.fornecedorDao = new FornecedorDao();
        setColumnProperties();
        loadData();
     }    
 
     private void setColumnProperties() {
         columnId.setCellValueFactory(new PropertyValueFactory<>("id"));
-        columnNumeroDocumento.setCellValueFactory(new PropertyValueFactory<>("numeroDocumento"));
-        columnCliente.setCellValueFactory(new PropertyValueFactory<>("cliente"));
+        columnNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
     }
 
     private void loadData() {
         list.clear();
-        list.addAll(vendaDao.getAll());
+        list.addAll(fornecedorDao.getAll());
         
         tableData.setItems(list);
     }
     
-     private void openForm(Venda venda, ActionEvent event) {
+     private void openForm(Fornecedor fornecedor, ActionEvent event) {
         try {
             //Carregar o arquivo fxml e cria um novo stage para a janela Modal
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(this.getClass().getResource("/fxml/FXMLVendaCadastro.fxml"));
+            loader.setLocation(this.getClass().getResource("/fxml/FXMLFornecedorCadastro.fxml"));
             AnchorPane pane = (AnchorPane) loader.load();
 
             //Criando o stage para o modal
             Stage dialogStage = new Stage();
-            dialogStage.setTitle("Cadastro de Venda");
+            dialogStage.setTitle("Cadastro de Fornecedor");
             dialogStage.initModality(Modality.WINDOW_MODAL);
             dialogStage.initOwner(((Node) event.getSource()).getScene().getWindow());
 
             Scene scene = new Scene(pane);
             dialogStage.setScene(scene);
 
-            FXMLVendaCadastroController controller = loader.getController();
-            controller.setVenda(venda);
+            FXMLFornecedorCadastroController controller = loader.getController();
+            controller.setFornecedor(fornecedor);
             controller.setDialogStage(dialogStage);
             //Exibe a janela Modal e espera até o usuário fechar
             dialogStage.showAndWait();
@@ -92,21 +88,21 @@ public class FXMLVendaListaController implements Initializable {
 
     @FXML
     private void edit(ActionEvent event) {
-        Venda venda = tableData.getSelectionModel().getSelectedItem();
-        this.openForm(venda, event);
+        Fornecedor fornecedor = tableData.getSelectionModel().getSelectedItem();
+        this.openForm(fornecedor, event);
     }
 
     @FXML
     private void newRecord(ActionEvent event) {
-        this.openForm(new Venda(), event);
+        this.openForm(new Fornecedor(), event);
     }
 
     @FXML
     private void delete(ActionEvent event) {
         if (tableData.getSelectionModel().getSelectedIndex() >= 0) {
             try {
-               Venda venda = tableData.getSelectionModel().getSelectedItem();
-               vendaDao.delete(venda.getId());
+               Fornecedor fornecedor = tableData.getSelectionModel().getSelectedItem();
+               fornecedorDao.delete(fornecedor.getId());
                tableData.getItems().remove(tableData.getSelectionModel().getSelectedIndex());
             } catch (Exception e) {
                 e.printStackTrace();

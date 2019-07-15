@@ -17,55 +17,79 @@
          <children>
             <MenuBar HBox.hgrow="ALWAYS">
               <menus>
-                <Menu mnemonicParsing="false" text="Cadastros">
+                <Menu mnemonicParsing="false" text="Compra e Venda">
                   <items>
-                    <MenuItem mnemonicParsing="false" onAction="#loadCategoria" text="Categoria" />
-                        <MenuItem mnemonicParsing="false" onAction="#loadProduto" text="Produto" />
-                        <MenuItem mnemonicParsing="false" onAction="#loadUsuario" text="Usuário" />
-                        <MenuItem mnemonicParsing="false" onAction="#loadEstado" text="Estado" />
-                        <MenuItem mnemonicParsing="false" text="Cidade" />
-                        <MenuItem mnemonicParsing="false" onAction="#loadMarca" text="Marca" />
-                        <MenuItem mnemonicParsing="false" onAction="#loadCliente" text="Cliente" />
+                        <MenuItem mnemonicParsing="false" onAction="#loadCompra" text="Compra" />
                         <MenuItem mnemonicParsing="false" onAction="#loadVenda" text="Venda" />
-                        <MenuItem mnemonicParsing="false" onAction="#loadContaPagar" text="Conta a Pagar" />
                   </items>
                 </Menu>
+                  <Menu mnemonicParsing="false" text="Financeiro">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#loadContaPagar" text="Conta a Pagar" />
+                        <MenuItem mnemonicParsing="false" onAction="#loadFormaPagamento" text="Formas de Pagamento" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Pessoas">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#loadCidade" text="Cidade" />
+                        <MenuItem mnemonicParsing="false" onAction="#loadCliente" text="Cliente" />
+                        <MenuItem mnemonicParsing="false" onAction="#loadFornecedor" text="Fornecedor" />
+                        <MenuItem mnemonicParsing="false" onAction="#loadUsuario" text="Usuário" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Produtos">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#loadCategoria" text="Categoria" />
+                        <MenuItem mnemonicParsing="false" onAction="#loadMarca" text="Marca" />
+                        <MenuItem mnemonicParsing="false" onAction="#loadProduto" text="Produto" />
+                     </items>
+                  </Menu>
                 <Menu mnemonicParsing="false" text="Relatórios">
                   <items>
                     <MenuItem mnemonicParsing="false" onAction="#showReportProduto" text="Produtos" />
-                  </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Gráficos">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="About" />
                   </items>
                 </Menu>
               </menus>
             </MenuBar>
          </children>
       </HBox>
-      <SplitPane dividerPositions="0.29797979797979796" prefHeight="160.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+      <SplitPane dividerPositions="0.5" prefHeight="160.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
         <items>
           <AnchorPane maxWidth="200.0" minHeight="0.0" minWidth="0.0" prefWidth="150.0">
                <children>
                   <Accordion layoutX="-13.0" layoutY="14.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <panes>
-                      <TitledPane animated="false" text="Cadastros">
+                      <TitledPane animated="false" text="Compra e Venda">
                         <content>
                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
-                                    <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#loadCategoria" text="Categoria" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                                    <Button layoutX="10.0" layoutY="43.0" mnemonicParsing="false" onAction="#loadProduto" text="Produto" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="43.0" />
-                                    <Button layoutX="61.0" layoutY="106.0" mnemonicParsing="false" onAction="#loadUsuario" text="Usuário" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="83.0" />
-                                    <Button layoutX="9.0" layoutY="129.0" mnemonicParsing="false" onAction="#loadEstado" text="Estado" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-                                    <Button layoutX="62.0" layoutY="169.0" mnemonicParsing="false" onAction="#loadMarca" text="Marca" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-                                    <Button layoutX="60.0" layoutY="205.0" mnemonicParsing="false" onAction="#loadCliente" text="Cliente" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-                                    <Button layoutX="62.0" layoutY="243.0" mnemonicParsing="false" onAction="#loadVenda" text="Venda" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-                                    <Button layoutX="37.800000000000004" layoutY="281.0" mnemonicParsing="false" onAction="#loadContaPagar" text="Conta a Pagar" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                                    <Button layoutX="74.0" layoutY="23.0" mnemonicParsing="false" onAction="#loadCompra" text="Compra" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <Button layoutX="10.0" layoutY="47.0" mnemonicParsing="false" onAction="#loadVenda" text="Venda" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="47.0" />
                                  </children>
                               </AnchorPane>
                         </content>
                       </TitledPane>
+                        <TitledPane animated="false" text="Financeiro">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <Button layoutX="37.800000000000004" layoutY="281.0" mnemonicParsing="false" onAction="#loadContaPagar" text="Contas à Pagar" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <Button layoutX="44.0" layoutY="44.0" mnemonicParsing="false" onAction="#loadFormaPagamento" text="Formas de Pagamento" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </TitledPane>
+                        <TitledPane animated="false" text="Pessoas">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <Button layoutX="60.0" layoutY="14.0" mnemonicParsing="false" onAction="#loadCidade" text="Cidade" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <Button layoutX="73.0" layoutY="41.0" mnemonicParsing="false" onAction="#loadCliente" text="Cliente" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                                    <Button layoutX="61.0" layoutY="104.0" mnemonicParsing="false" onAction="#loadFornecedor" text="Fornecedor" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                                    <Button layoutX="61.0" layoutY="73.0" mnemonicParsing="false" onAction="#loadEstado" text="Estado" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                                 </children></AnchorPane>
+                           </content>
+                        </TitledPane>
                       <TitledPane animated="false" prefHeight="206.0" prefWidth="179.0" text="Relatórios">
                         <content>
                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
@@ -74,11 +98,16 @@
                                  </children></AnchorPane>
                         </content>
                       </TitledPane>
-                      <TitledPane animated="false" text="Gráficos">
-                        <content>
-                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                        </content>
-                      </TitledPane>
+                        <TitledPane animated="false" text="Produtos">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <Button layoutX="67.0" layoutY="52.0" mnemonicParsing="false" onAction="#loadCategoria" text="Categoria" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <Button layoutX="73.0" layoutY="43.0" mnemonicParsing="false" onAction="#loadMarca" text="Marca" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                                    <Button layoutX="73.0" layoutY="76.0" mnemonicParsing="false" onAction="#loadProduto" text="Produto" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                                 </children></AnchorPane>
+                           </content>
+                        </TitledPane>
                     </panes>
                   </Accordion>
                </children>

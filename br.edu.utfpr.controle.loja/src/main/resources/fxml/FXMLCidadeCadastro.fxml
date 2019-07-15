@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="307.0" prefWidth="368.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.utfpr.pb.oo24s.aula4.javafx.controller.FXMLCidadeCadastroController">
+    <stylesheets>
+        <URL value="@/styles/style.css" />
+    </stylesheets>
+   <children>
+      <Label layoutX="28.0" layoutY="34.0" text="Código" />
+      <Label layoutX="29.0" layoutY="97.0" text="Nome" />
+      <Label layoutX="35.0" layoutY="160.0" text="Estado" />
+      <TextField fx:id="textId" editable="false" layoutX="28.0" layoutY="60.0" prefHeight="25.0" prefWidth="311.0" />
+      <TextField fx:id="textNome" layoutX="28.0" layoutY="120.0" prefHeight="25.0" prefWidth="311.0" />
+      <ComboBox fx:id="comboEstado" layoutX="32.0" layoutY="189.0" prefHeight="25.0" prefWidth="305.0" />
+      <Button layoutX="289.0" layoutY="260.0" mnemonicParsing="false" onAction="#save" text="Salvar" />
+      <Button layoutX="36.0" layoutY="260.0" mnemonicParsing="false" onAction="#cancel" text="Cancelar" />
+   </children>
+</AnchorPane>
